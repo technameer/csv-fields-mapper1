@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-step Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        .form-step {
+            display: none;
+        }
+        .form-step.active {
+            display: block;
+        }
+        .form-step h2 {
+            margin-top: 0;
+        }
+        .form-step .field-group {
+            margin-bottom: 15px;
+        }
+        .form-step label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-step input[type="text"],
+        .form-step select,
+        .form-step textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-step input[type="radio"],
+        .form-step input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons button {
+            padding: 10px 15px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .buttons button[disabled] {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form id="multi-step-form">
+            <div class="form-step active">
+                <h2>Text type to choose from</h2>
+                <div class="field-group">
+                    <label for="text-type">What type of text would you like to have created?</label>
+                    <select id="text-type" name="text-type">
+                        <option value="speech">Speech/speech</option>
+                        <option value="press-release">Press release</option>
+                        <option value="website-texts">Website texts</option>
+                        <option value="blogtext">Blogtext</option>
+                        <option value="product-description">Product description</option>
+                        <option value="category-text">Category text</option>
+                        <option value="advertising-text">Advertising text in general</option>
+                        <option value="reportage">Reportage</option>
+                        <option value="interview">Interview</option>
+                        <option value="specialist-article">Specialist article</option>
+                        <option value="science-communication">Science communication</option>
+                        <option value="brief">Brief</option>
+                        <option value="translation">Translation</option>
+                        <option value="powerpoint-presentation">Powerpoint presentation</option>
+                        <option value="monthly-hourly-quota">Monthly hourly quota</option>
+                    </select>
+                </div>
+                <div class="buttons">
+                    <button type="button" id="next1">Next</button>
+                </div>
+            </div>
+
+            <div class="form-step">
+                <h2>Further information about the desired text</h2>
+                <div class="field-group">
+                    <label for="purpose">What is the purpose of your speech/address?</label>
+                    <select id="purpose" name="purpose">
+                        <option value="wedding">Wedding</option>
+                        <option value="birthday">Birthday</option>
+                        <option value="family-celebrations">Other family celebrations (baptism, communion…)</option>
+                        <option value="company-party">Company party</option>
+                        <option value="club-celebration">Club celebration</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label for="capacity">In what capacity are you giving the speech/address?</label>
+                    <input type="text" id="capacity" name="capacity">
+                </div>
+                <div class="field-group">
+                    <label for="listeners">Who are your listeners?</label>
+                    <input type="text" id="listeners" name="listeners">
+                </div>
+                <div class="field-group">
+                    <label for="content">What content is important to you?</label>
+                    <textarea id="content" name="content"></textarea>
+                </div>
+                <div class="field-group">
+                    <label for="duration">How long should the speech last?</label>
+                    <select id="duration" name="duration">
+                        <option value="5-10">5-10 min</option>
+                        <option value="10-15">10-15 min</option>
+                        <option value="15-20">15-20 min</option>
+                        <option value="20-30">20-30 min</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label for="additional">Is there anything else you would like to tell me?</label>
+                    <textarea id="additional" name="additional"></textarea>
+                </div>
+                <div class="buttons">
+                    <button type="button" id="prev2">Previous</button>
+                    <button type="button" id="next2">Next</button>
+                </div>
+            </div>
+
+            <!-- Add more steps as needed -->
+
+            <div class="form-step">
+                <h2>Language</h2>
+                <div class="field-group">
+                    <label for="language">In which language would you like to receive your text?</label>
+                    <select id="language" name="language">
+                        <option value="german">German</option>
+                        <option value="english-uk">English (UK)</option>
+                        <option value="english-us">English (US)</option>
+                    </select>
+                </div>
+                <div class="buttons">
+                    <button type="button" id="prev3">Previous</button>
+                    <button type="button" id="next3">Next</button>
+                </div>
+            </div>
+
+            <div class="form-step">
+                <h2>Date selection</h2>
+                <div class="field-group">
+                    <label for="date">When should your text be finished by at the latest?</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="buttons">
+                    <button type="button" id="prev4">Previous</button>
+                    <button type="button" id="next4">Next</button>
+                </div>
+            </div>
+
+            <div class="form-step">
+                <h2>Costs and Payment</h2>
+                <p>Generally speaking: 12 cents per word. For speeches/addresses 1 min = 100 words, for PowerPoint 1 page = €95, for hourly quotas 1 hour = €95. All prices plus tax.</p>
+                <div class="buttons">
+                    <button type="button" id="prev5">Previous</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const steps = document.querySelectorAll('.form-step');
+            const nextButtons = document.querySelectorAll('[id^=next]');
+            const prevButtons = document.querySelectorAll('[id^=prev]');
+            let currentStep = 0;
+
+            nextButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    steps[currentStep].classList.remove('active');
+                    currentStep = (currentStep + 1) % steps.length;
+                    steps[currentStep].classList.add('active');
+                });
+            });
+
+            prevButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    steps[currentStep].classList.remove('active');
+                    currentStep = (currentStep - 1 + steps.length) % steps.length;
+                    steps[currentStep].classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
