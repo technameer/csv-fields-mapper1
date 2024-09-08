@@ -1,67 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
-
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    max-width: 400px;
-    margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-select {
-    width: 100%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-.quote {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-}
-
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Grooming Price Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        select:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .quote {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -104,36 +116,33 @@ button:hover {
 
     <script>
         function calculatePrice() {
-    const breed = document.getElementById('breed').value;
-    const service = document.getElementById('service').value;
-    const weight = document.getElementById('weight').value;
+            const breed = document.getElementById('breed').value;
+            const service = document.getElementById('service').value;
+            const weight = document.getElementById('weight').value;
 
-    let price = 0;
+            let price = 0;
 
-    if (breed === 'Affenpinscher') {
-        if (service === 'Full Groom' && weight === '0-14') price = 70;
-        if (service === 'Bath' && weight === '0-14') price = 60;
-    }
+            if (breed === 'Affenpinscher') {
+                if (service === 'Full Groom' && weight === '0-14') price = 70;
+                if (service === 'Bath' && weight === '0-14') price = 60;
+            }
 
-    if (breed === 'Akita') {
-        if (service === 'Full Groom' && weight === '30-49') price = 180;
-        if (service === 'Bath' && weight === '30-49') price = 165;
-    }
+            if (breed === 'Akita') {
+                if (service === 'Full Groom' && weight === '30-49') price = 180;
+                if (service === 'Bath' && weight === '30-49') price = 165;
+            }
 
-    if (breed === 'Beagle') {
-        if (service === 'Full Groom' && weight === '0-14') price = 70;
-        if (service === 'Bath' && weight === '0-14') price = 60;
-    }
+            if (breed === 'Beagle') {
+                if (service === 'Full Groom' && weight === '0-14') price = 70;
+                if (service === 'Bath' && weight === '0-14') price = 60;
+            }
 
-    if (price > 0) {
-        document.getElementById('quote').innerHTML = `The price is $${price}.`;
-    } else {
-        document.getElementById('quote').innerHTML = 'Please make a valid selection.';
-    }
-}
-
+            if (price > 0) {
+                document.getElementById('quote').innerHTML = `The price is $${price}.`;
+            } else {
+                document.getElementById('quote').innerHTML = 'Please make valid selections.';
+            }
+        }
     </script>
 </body>
 </html>
-
-
