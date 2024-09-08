@@ -115,34 +115,37 @@
     </div>
 
     <script>
-        function calculatePrice() {
-            const breed = document.getElementById('breed').value;
-            const service = document.getElementById('service').value;
-            const weight = document.getElementById('weight').value;
+function calculatePrice() {
+    const breed = document.getElementById('breed').value;
+    const service = document.getElementById('service').value;
+    const weight = document.getElementById('weight').value;
 
-            let price = 0;
+    let breedPrice = 0;
+    let servicePrice = 0;
+    let weightPrice = 0;
 
-            if (breed === 'Affenpinscher') {
-                if (service === 'Full Groom' && weight === '0-14') price = 70;
-                if (service === 'Bath' && weight === '0-14') price = 60;
-            }
+    // Prices based on breed
+    if (breed === 'Affenpinscher') breedPrice = 50;
+    if (breed === 'Akita') breedPrice = 100;
+    if (breed === 'Beagle') breedPrice = 40;
 
-            if (breed === 'Akita') {
-                if (service === 'Full Groom' && weight === '30-49') price = 180;
-                if (service === 'Bath' && weight === '30-49') price = 165;
-            }
+    // Prices based on service
+    if (service === 'Full Groom') servicePrice = 30;
+    if (service === 'Bath') servicePrice = 20;
+    if (service === 'Shave') servicePrice = 25;
 
-            if (breed === 'Beagle') {
-                if (service === 'Full Groom' && weight === '0-14') price = 70;
-                if (service === 'Bath' && weight === '0-14') price = 60;
-            }
+    // Prices based on weight
+    if (weight === '0-14') weightPrice = 10;
+    if (weight === '15-29') weightPrice = 20;
+    if (weight === '30-49') weightPrice = 30;
 
-            if (price > 0) {
-                document.getElementById('quote').innerHTML = `The price is $${price}.`;
-            } else {
-                document.getElementById('quote').innerHTML = 'Please make valid selections.';
-            }
-        }
+    // Calculate total price
+    const totalPrice = breedPrice + servicePrice + weightPrice;
+
+    // Display the price
+    document.getElementById('quote').innerHTML = `The price is $${totalPrice}.`;
+}
+
     </script>
 </body>
 </html>
